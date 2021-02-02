@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
       return res.status(400).json({ status: 'error', message: err.message });
     }
 
-    const filename = filepath.split('/').pop();
+    const filename = filepath.split('/').pop().split("/").pop();
 
     const media = await Media.create({ image: `images/${filename}` });
 
